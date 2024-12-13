@@ -1,0 +1,134 @@
+html {
+    width: auto;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.projectlogo img {
+    display: block;
+    width: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+	padding-left: 90px;
+}
+
+nav ul {
+	list-style-type: none;
+	padding : 0px;
+	margin : 0;
+    padding-top: 5px;
+	width: auto;
+}
+
+nav ul li{
+	float: left;
+}
+
+nav ul li a {
+	text-align: center;
+	display: block;
+	width: 90px;
+	text-decoration: none;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	background-color: transparent;
+	color: black;
+	font-weight: bold;
+}
+
+aside nav {
+	position : relative;
+}
+
+nav ul ul li {
+	float: none;
+}
+
+nav ul li:hover > ul {
+	display: block;
+}
+
+nav ul::after {
+	content: "";
+	clear: both;
+	display: block;
+}
+
+nav ul li a:hover {
+    background-color: lightgrey;
+}
+
+.rightnav {
+    float: right;
+	padding-top: 20px;
+}
+
+.leftnav {
+    float: left;
+	padding-top: 20px;
+}
+
+.navbar {
+	width: 100%;
+	display: flex;
+	justify-content: space-around;
+	background-color: #0768DC;
+}
+
+.navbar ul li {
+	padding-bottom: 5px;
+	padding-top: 5
+}
+
+.navbar ul li a {
+	color: white;
+}
+
+.navbar ul li a:hover {
+	background-color: #0656b8;
+}
+
+h1 {
+	padding-top: 20px;
+	padding-left: 40px;
+}
+
+section {
+	width: 100%;
+	padding: 20px;
+}
+
+td a img {
+	float: left;
+	height: 90%;
+	width: 90%;
+	padding-left: 40px;
+	padding-bottom: 20px;
+}
+
+td p {
+	text-align: left;
+	padding: 20px;
+	border-radius: 8px;
+	padding-left: 40px;
+}
+
+footer {
+	width: 100%;
+	text-align: center;
+	padding: 10px;
+	background-color: #0768DC;
+	clear: both;
+	position: fixed;
+	bottom: 0;
+}
+
+footer p {
+	margin: 0;
+	font-style: italic;
+	color: white;
+}

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+    <title>ACNH</title>
+	<link rel="shortcut icon" href="../images/project_logo.png">
+	<link rel="stylesheet" href="../styles/normalize.css">
+	<link rel="stylesheet" href="../styles/login.css">
+</head>
+
+<body>
+    <header> 
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">  
+       <aside class="leftnav">
+            <nav>
+                <ul>
+                    <li>
+                        <a href="../shop/shop.php">Shop</a>
+                    </li>
+                </ul>
+            </nav>                   
+        </aside> 
+       <aside class="rightnav">
+            <nav>
+                <ul>
+                    <li>
+                        <a class="current" href="../index.html"><i class="fa fa-fw fa-home"></i>Home</a>
+                    </li>
+                    <li>
+                        <a href="login.html"><i class="fa fa-fw fa-user"></i>Login</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside> 
+        <a class="projectlogo" href="../index.html"><img src="../images/acnh_project_logo.png" alt="ACNH Logo"></a>        
+    </header>
+    
+    <main>
+        <aside>
+            <nav class="navbar">
+                <ul></ul>
+            </nav>
+        </aside>
+
+        <form class="box animate" action="login.php" method="post">
+
+            <div class="login-border">
+
+            <h1 align="center"> 
+                Log in
+            </h1>
+
+            <label for="username">
+                <b>
+                    Username
+                </b>
+            </label>
+
+            <input type="text" placeholder="Enter Username" name="username" required="required">
+
+            <!-- Password storage -->
+            <label for="password"> 
+                <b>
+                    Password
+                </b>
+            </label>
+
+            <input type="password" placeholder="Enter Password" name="password" required="required">
+
+            <br/>
+
+            <button type="submit" name="login">Login</button>
+            
+            <br/>
+
+            <a class="createacc" style="font-size: 12px; float:right; color:#0768DC;" title="Signup" href="../signup/signup.html">
+                Don't have an account?
+            </a>
+
+            </div>
+
+        </form>
+    </main>
+</body>
+<footer>
+   <center>
+    <p>
+        <em>Built by Benjamin and Stephanie &copy;</em>
+    </p>
+    </center>
+</footer>
+</html>
