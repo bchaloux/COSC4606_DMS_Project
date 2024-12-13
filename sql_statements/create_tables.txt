@@ -1,0 +1,109 @@
+// MaterialsOwned Table
+CREATE TABLE MaterialsOwned (
+	username varchar(12) NOT NULL,
+	materialName varchar(255) NOT NULL,
+	quantity int NOT NULL,
+	FOREIGN KEY (username) REFERENCES Islander (username),
+	FOREIGN KEY (materialName) REFERENCES Materials (materialName),
+	CONSTRAINT PK_Material PRIMARY KEY (username, materialName)
+);
+
+// Materials Table
+CREATE TABLE  Materials (
+	materialName varchar(255) NOT NULL PRIMARY KEY,
+	sellPrice int NOT NULL
+);
+
+
+// craftedItemRecipe Table
+CREATE TABLE craftedItemRecipe (
+	craftedItemRecipeID int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	craftedItemName varchar(255) NOT NULL,
+	category varchar(255) NOT NULL,
+	sellPrice int NOT NULL,
+	materialName varchar(255) NOT NULL,
+	requiredQuantity int NOT NULL,
+	recipeImg varchar(40)
+	FOREIGN KEY (materialName) REFERENCES Materials (materialName)
+);
+
+// craftedItemsOwned Table
+CREATE TABLE craftedItemsOwned (
+	craftedItemRecipeID int,
+	username varchar(12),
+	quantity int NOT NULL,
+	FOREIGN KEY(craftedItemRecipeID) REFERENCES craftedItemRecipe(craftedItemRecipeID),
+	FOREIGN KEY(username) REFERENCES Islander(username),
+	CONSTRAINT ItemsOwned PRIMARY KEY (craftedItemRecipeID, username)
+);
+
+// IslandVillager Table
+CREATE TABLE IslandVillager (
+	villagerName varchar(255),
+	username varchar(12),
+	FOREIGN KEY(villagerName) REFERENCES VillagerMaster(villagerName),
+	FOREIGN KEY(username) REFERENCES Islander(username),
+CONSTRAINT PK_islandvillager PRIMARY KEY (villagerName, username)
+);
+
+// VillagerMaster Table
+CREATE TABLE VillagerMaster (
+	villagerName varchar(255) NOT NULL PRIMARY KEY,
+	personalityType varchar(255) NOT NULL,
+	species varchar(255) NOT NULL,
+	villagerImg varchar(40)
+);
+
+// TradeTransaction Table
+CREATE TABLE TradeTransaction (
+	tradeTransactionID int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	transDate DATE NOT NULL,
+	villagerGiven int NOT NULL,
+	islanderItemGiven int NOT NULL,
+	villagerName varchar(255) NOT NULL,
+	username varchar(12),
+	FOREIGN KEY(islanderItemGiven) REFERENCES craftedItemRecipe(craftedItemRecipeID),
+	FOREIGN KEY (villagerGiven) REFERENCES Inventory(inventoryItemID),
+	FOREIGN KEY(villagerName) REFERENCES IslandVillager(villagerName),
+	FOREIGN KEY(username) REFERENCES Islander(username)
+);
+
+// storeVisits Table
+CREATE TABLE storeVisits (
+	storeVisitsID int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	storeName varchar(255) NOT NULL,
+	visitDate DATE NOT NULL,
+	username varchar(12),
+	FOREIGN KEY(username) REFERENCES Islander(username),
+	FOREIGN KEY(storeName) REFERENCES Store(storeName)
+);
+
+// PurchasedItems Table
+CREATE TABLE PurchasedItems (
+	purchasedItemsID int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	quantity int NOT NULL,
+	storeVisitsID int NOT NULL,
+	inventoryItemID int,
+	FOREIGN KEY(storeVisitsID) REFERENCES storeVisits(storeVisitsID),
+	FOREIGN KEY(inventoryItemID) REFERENCES Inventory(inventoryItemID)
+);
+
+// Store Table
+CREATE TABLE Store (
+	storeName varchar(255) NOT NULL PRIMARY KEY,
+	storeOwner varchar(255) NOT NULL,
+	storeDesc varchar(255) NOT NULL,
+	openTime TIME NOT NULL,
+	closeTime TIME NOT NULL
+);
+
+// Inventory Table
+CREATE TABLE Inventory (
+	inventoryItemID int NOT NULL PRIMARY KEY,
+	itemName varchar(255) NOT NULL,
+	retailPrice int NOT NULL,
+	sellPrice int NOT NULL,
+	itemImg, varchar(40),
+	storeName varchar(30),
+	FOREIGN KEY (storeName) REFERENCES Store(storeName)
+);
