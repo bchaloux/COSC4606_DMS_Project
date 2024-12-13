@@ -1,3 +1,11 @@
+// Islander Table
+CREATE TABLE Islander (
+    username varchar(12) NOT NULL PRIMARY KEY,
+    password varchar(15) NOT NULL,
+    islandName varchar(255) NOT NULL,
+    bells int
+);
+
 // MaterialsOwned Table
 CREATE TABLE MaterialsOwned (
 	username varchar(12) NOT NULL,
